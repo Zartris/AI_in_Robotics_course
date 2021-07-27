@@ -1,24 +1,6 @@
 import numpy as np
 
-
-class MotionModel:
-    def __init__(self, pExact=0.8, pOvershoot=0.1, pUndershoot=0.1):
-        self.pExact = pExact
-        self.pOvershoot = pOvershoot
-        self.pUndershoot = pUndershoot
-
-    def move(self, p: np.array, U):
-        q = np.zeros((len(p)))
-        U = U % len(p)
-        for i in range(len(p)):
-            new_pos = i + U
-            # handle undershoot
-            q[(new_pos - 1) % len(p)] += p[i] * self.pUndershoot
-            # handle exact
-            q[new_pos % len(p)] += p[i] * self.pExact
-            # handle overshoot
-            q[(new_pos + 1) % len(p)] += p[i] * self.pOvershoot
-        return q
+from l1_Location.models.motion_models import MotionModel1D
 
 
 class ProbabilisticRobot:
@@ -26,7 +8,7 @@ class ProbabilisticRobot:
         self.world = world
         self.pHit = sensor_accuracy["hit_ratio"]
         self.pMiss = sensor_accuracy["miss_ratio"]
-        self.motion_model = MotionModel()
+        self.motion_model = MotionModel1D()
         self.verbose = True
         # init:
         self.p = np.full((len(self.world)), 1. / len(self.world))
