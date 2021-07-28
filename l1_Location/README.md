@@ -1,9 +1,13 @@
-# AI_in_Robotics_course
+# Lesson 1: Monte Carlo Location
+* Discrete 
+* Multi-modal = We can have multiple grids with same probability
 
-Lesson 1
+## Bayes Threorem (measurements):
+Info:
+* Product (https://mathworld.wolfram.com/Product.html)
 
-## Bayes Threorem:
 ``P(A|B) = P(B|A)*P(A) / P(B)``
+
 
 We introduce a variable called p_bar which is the non-normalized posterior
 
@@ -18,7 +22,10 @@ p(X_i|Z)      = (1/alpha) * p_bar(X_i|Z)
 This is exactly what we programmed in 2_location_robot_example.py in the method sense and see cancer example
 
 ## Total probability (motion)
-https://classroom.udacity.com/courses/cs373/lessons/48739381/concepts/485326080923
+Info:
+* https://classroom.udacity.com/courses/cs373/lessons/48739381/concepts/485326080923
+* Convolution (https://mathworld.wolfram.com/Convolution.html)
+
 ```markdown
 i = grid cell
 t = time step
